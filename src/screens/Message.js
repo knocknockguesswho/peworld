@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {connect} from 'react-redux';
 import {
   Text,
   View,
@@ -11,7 +12,7 @@ import {
 import {HomeBackground} from '../../assets/images';
 import {ProfilePicture} from '../components/atoms'
 
-const Message = () =>{
+const Message = (props) =>{
 
 
   const [message, setMessage] = useState([
@@ -139,4 +140,15 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Message;
+const mapStateToProps = state =>({
+  auth: state.auth,
+  profile: state.profile,
+  skills: state.skills,
+  portfolio: state.portfolio,
+  workExperiences: state.workExperiences
+})
+
+
+export default connect(
+  mapStateToProps,
+)(Message);

@@ -159,6 +159,7 @@ class Profile extends Component{
   }
 
   render(){
+    console.log(this.props.profile, 'Profile')
     return(
       <>
         <View style={styles.container}>

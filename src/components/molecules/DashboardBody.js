@@ -10,8 +10,10 @@ import {
 
 import {ProfilePicture} from '../atoms'
 
-const DashboardBody = ({data}) =>{
+const DashboardBody = ({data, profile}) =>{
 
+
+  console.log(profile, 'Dashboard Body Profile')
 
   return(
     <>

@@ -152,6 +152,7 @@ const Dashboard = (props) =>{
         </View>
         <DashboardBody 
           data={data}
+          profile={props.profile.data}
         />
       </View>
     </>
@@ -170,7 +171,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state =>({
   users: state.users,
-  auth: state.auth
+  auth: state.auth,
+  profile: state.profile
 });
 
 const mapDispatchToProps = {
