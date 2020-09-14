@@ -8,6 +8,9 @@ import SearchIconActive from './search_icon_active.svg';
 import DashboardIconActive from './dashboard_icon_active.svg';
 import BellIcon from './bell_icon.svg';
 import DotsIcon from './dots_icon.svg';
+import CloudIcon from './cloud-computing_icon.svg';
+import UploadLeft from './upload_leftIcon.svg';
+import UploadRight from './upload_rightIcon.svg';
 
 export {
   PeworldLogo,
@@ -19,5 +22,8 @@ export {
   SearchIconActive,
   DashboardIconActive,
   BellIcon,
-  DotsIcon
+  DotsIcon,
+  CloudIcon,
+  UploadLeft,
+  UploadRight
 };

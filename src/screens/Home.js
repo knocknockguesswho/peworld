@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import {
   ImageBackground,
   StyleSheet,
@@ -31,6 +32,12 @@ class Home extends Component{
 
   handleGoToLogin = () =>{
     this.props.navigation.push('Login')
+  }
+
+  componentDidMount(){
+    if(this.props.auth.isLogin){
+      this.props.navigation.push('MainApp')
+    }
   }
 
   render(){
@@ -100,4 +107,10 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Home;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps
+)(Home);

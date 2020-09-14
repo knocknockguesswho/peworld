@@ -13,15 +13,3 @@ export const ShowAllUsers = (token) =>{
   }
 }
 
-// export const ShowSkills = (user_id, token) =>{
-//   return{
-//     type: 'SHOWALLSKILLS',
-//     payload: axios({
-//       method: 'GET',
-//       url: `http://54.236.49.226:3000/api/skills/show/${user_id}`,
-//       headers:{
-//         'Authorization': token
-//       }
-//     })
-//   }
-// }

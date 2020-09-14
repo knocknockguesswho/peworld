@@ -29,7 +29,7 @@ export const RegisterAction = (data) => {
       url: `http://54.236.49.226:3000/api/auth/register`,
       data: {
         email: data.email,
-        fullname: data.name,
+        name: data.name,
         phone: data.phone,
         password: data.password,
       },

@@ -2,45 +2,19 @@ const initialState = {
   data: {},
   errorMessage: '',
   isLoading: false,
-  isLogin: false,
   isError: false
-};
+}
 
-const auth = (state=initialState, action) =>{
+const profile = (state=initialState, action) =>{
   switch (action.type){
-    case 'LOGIN_PENDING':{
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-        isLogin: false
-      };
-    }
-    case 'LOGIN_REJECTED':{
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
-        isLogin: false
-      };
-    }
-    case 'LOGIN_FULFILLED':{
-      return {
-        ...state,
-        isLoading: false,
-        isError: false,
-        isLogin: true,
-        data: action.payload.data.data[0]
-      };
-    }
-    case 'REGISTER_PENDING':{
+    case 'SHOWPROFILE_PENDING':{
       return {
         ...state,
         isLoading: true,
         isError: false,
       };
     }
-    case 'REGISTER_REJECTED':{
+    case 'SHOWPROFILE_REJECTED':{
       return {
         ...state,
         isLoading: false,
@@ -48,7 +22,7 @@ const auth = (state=initialState, action) =>{
         errorMessage: action.payload.response.data.data
       };
     }
-    case 'REGISTER_FULFILLED':{
+    case 'SHOWPROFILE_FULFILLED':{
       return {
         ...state,
         isLoading: false,
@@ -56,11 +30,26 @@ const auth = (state=initialState, action) =>{
         data: action.payload.data.data[0]
       };
     }
-    case 'LOGOUT':{
+    case 'INSERTPROFILE_PENDING':{
       return {
         ...state,
-        isLogin: false,
-        data:{}
+        isLoading: true,
+        isError: false,
+      };
+    }
+    case 'INSERTPROFILE_REJECTED':{
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload.response.data.data
+      };
+    }
+    case 'INSERTPROFILE_FULFILLED':{
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
       };
     }
     default:{
@@ -69,4 +58,4 @@ const auth = (state=initialState, action) =>{
   }
 }
 
-export default auth;
+export default profile;

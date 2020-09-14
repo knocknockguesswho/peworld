@@ -18,7 +18,7 @@ import {
   Button
 } from '../atoms'
 
-const BriefProfile = () =>{
+const BriefProfile = ({logout}) =>{
 
 
   const [data, setData] = useState({
@@ -32,6 +32,7 @@ const BriefProfile = () =>{
     <>
       <View style={styles.container}>
         <View style={styles.avatar}>
+          <TouchableOpacity onPress={logout} style={styles.logoutButton}><Text style={styles.logoutText}>Logout</Text></TouchableOpacity>
           <ProfilePicture 
             height={width*.4}
             width={width*.4}
@@ -83,11 +84,11 @@ const BriefProfile = () =>{
 const {width,height} = Dimensions.get('window')
 const styles = StyleSheet.create({
   container:{
-    height: width*1,
     width: width*.95,
     backgroundColor: 'white',
     borderRadius: 10,
     paddingVertical: width*.05,
+    paddingHorizontal: width*.02
   },
   avatar:{
     alignItems: 'center'
@@ -134,7 +135,14 @@ const styles = StyleSheet.create({
     marginVertical: width*.05,
     height: width*.3,
     justifyContent: 'space-around'
+  },
+  logoutButton:{
+    alignSelf: 'flex-end'
+  },
+  logoutText:{
+    fontFamily: 'OpenSans-SemiBold'
   }
 })
+
 
 export default BriefProfile;

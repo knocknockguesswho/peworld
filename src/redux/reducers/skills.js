@@ -5,16 +5,16 @@ const initialState = {
   isError: false
 }
 
-const users = (state=initialState, action) =>{
+const skills = (state=initialState, action) =>{
   switch (action.type){
-    case 'SHOWALLUSERS_PENDING':{
+    case 'SHOWSKILLS_PENDING':{
       return {
         ...state,
         isLoading: true,
         isError: false,
       };
     }
-    case 'SHOWALLUSERS_REJECTED':{
+    case 'SHOWSKILLS_REJECTED':{
       return {
         ...state,
         isLoading: false,
@@ -22,7 +22,7 @@ const users = (state=initialState, action) =>{
         errorMessage: action.payload.response.data.data
       };
     }
-    case 'SHOWALLUSERS_FULFILLED':{
+    case 'SHOWSKILLS_FULFILLED':{
       return {
         ...state,
         isLoading: false,
@@ -36,4 +36,4 @@ const users = (state=initialState, action) =>{
   }
 }
 
-export default users;
+export default skills;

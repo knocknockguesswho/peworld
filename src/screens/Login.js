@@ -65,12 +65,6 @@ class Login extends Component{
       });
   };
 
-  componentDidMount(){
-    if(this.props.auth.isLogin){
-      this.props.navigation.push('MainApp')
-    }
-  }
-
   render(){
     return(
       <>

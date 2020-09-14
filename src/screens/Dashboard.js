@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import {ShowAllUsers} from '../redux/actions/users';
+import {ShowSkills} from '../redux/actions/skills';
+import {ShowProfile} from '../redux/actions/profile';
+import {ShowPortfolio} from '../redux/actions/portfolio';
+import {ShowWorkExperiences} from '../redux/actions/workExperiences';
 import {LogoutAction} from '../redux/actions/auth';
 import {
   Text,
@@ -18,39 +22,124 @@ import {
 } from '../components/molecules'
 
 
+import {HomeBackground} from '../../assets/images'
+
 const Dashboard = (props) =>{
 
-  // const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([])
+  const [skills, setSkills] = useState([])
+  const [profile, setProfile] = useState([])
+  const [portfolio, setPortfolio] = useState([])
+  const [workExperiences, setWorkExperiences] = useState([])
 
-  // const fetchUsers = async () =>{
-  //   const token = props.auth.data.token;
-  //   await props.ShowAllUsers(token)
-  //   .then((res)=>{
-  //     console.log(res)
-  //     setUsers(res.value.data.data[0])
-  //   })
-  //   .catch((err)=>{
-  //     console.log(err)
-  //   })
-  //   console.log(props.auth.data.token)
-  // }
+  const fetchUsers = async () =>{
+    const token = props.auth.data.token;
+    await props.ShowAllUsers(token)
+    .then((res)=>{
+      console.log(res)
+      setUsers(res.value.data.data[0])
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
 
-  // const handleLogout = () =>{
-  //   props.LogoutAction()
-  //   props.navigation.push('Login')
-  // }
+  const fetchSkills = async () =>{
+    const token = props.auth.data.token;
+    const user_id = props.auth.data.id;
+    await props.ShowSkills(token, user_id)
+    .then((res)=>{
+      console.log(res)
+      setSkills(res.value.data.data[0])
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
 
-  // useEffect(()=>{
-  //   fetchUsers()
-  // },[])
+  const fetchProfile = async () =>{
+    const token = props.auth.data.token;
+    const user_id = props.auth.data.id;
+    await props.ShowProfile(token, user_id)
+    .then((res)=>{
+      console.log(res)
+      setProfile(res.value.data.data[0])
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+  
+  const fetchPortfolio = async () =>{
+    const token = props.auth.data.token;
+    const user_id = props.auth.data.id;
+    await props.ShowPortfolio(token, user_id)
+    .then((res)=>{
+      console.log(res)
+      setPortfolio(res.value.data.data[0])
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+  
+  const fetchWorkExperiences = async () =>{
+    const token = props.auth.data.token;
+    const user_id = props.auth.data.id;
+    await props.ShowWorkExperiences(token, user_id)
+    .then((res)=>{
+      console.log(res)
+      setWorkExperiences(res.value.data.data[0])
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
 
-  const [data, setData] = useState([
-    1,2,3,4,5,6,7,8,9,10
-  ])
+  useEffect(()=>{
+    fetchUsers()
+    fetchSkills()
+    fetchProfile()
+    fetchPortfolio()
+    fetchWorkExperiences()
+  },[])
 
   const handleGoToNotification = () =>{
     props.navigation.navigate('Notification')
   }
+
+  const [data, setData] = useState([
+      {
+        name: 'Faris Ramadhan',
+        avatar: HomeBackground,
+        job: 'Full Stack Developer',
+        skills: ['javascript', 'java', 'css']
+      },
+      {
+        name: 'Faris Ramadhan',
+        avatar: HomeBackground,
+        job: 'Full Stack Developer',
+        skills: ['javascript', 'java', 'css']
+      },
+      {
+        name: 'Faris Ramadhan',
+        avatar: HomeBackground,
+        job: 'Full Stack Developer',
+        skills: ['javascript', 'java', 'css']
+      },
+      {
+        name: 'Faris Ramadhan',
+        avatar: HomeBackground,
+        job: 'Full Stack Developer',
+        skills: ['javascript', 'java', 'css']
+      },
+      {
+        name: 'Faris Ramadhan',
+        avatar: HomeBackground,
+        job: 'Full Stack Developer',
+        skills: ['javascript', 'java', 'css']
+      },
+  ])
 
 
   return(
@@ -61,7 +150,9 @@ const Dashboard = (props) =>{
             notificationPress={handleGoToNotification}
           />
         </View>
-        <DashboardBody />
+        <DashboardBody 
+          data={data}
+        />
       </View>
     </>
   )
@@ -82,7 +173,14 @@ const mapStateToProps = state =>({
   auth: state.auth
 });
 
-const mapDispatchToProps = {ShowAllUsers, LogoutAction}
+const mapDispatchToProps = {
+  ShowAllUsers, 
+  LogoutAction,
+  ShowSkills,
+  ShowPortfolio,
+  ShowProfile,
+  ShowWorkExperiences
+}
 
 export default connect(
   mapStateToProps,

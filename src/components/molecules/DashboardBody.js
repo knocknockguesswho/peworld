@@ -8,44 +8,10 @@ import {
   ScrollView
 } from 'react-native';
 
-import {HomeBackground} from '../../../assets/images'
-import {Card, ProfilePicture} from '../atoms'
+import {ProfilePicture} from '../atoms'
 
-const DashboardBody = () =>{
+const DashboardBody = ({data}) =>{
 
-
-  const [data, setData] = useState([
-    {
-      name: 'Faris Ramadhan',
-      avatar: HomeBackground,
-      job: 'Full Stack Developer',
-      skills: ['javascript', 'java', 'css']
-    },
-    {
-      name: 'Faris Ramadhan',
-      avatar: HomeBackground,
-      job: 'Full Stack Developer',
-      skills: ['javascript', 'java', 'css']
-    },
-    {
-      name: 'Faris Ramadhan',
-      avatar: HomeBackground,
-      job: 'Full Stack Developer',
-      skills: ['javascript', 'java', 'css']
-    },
-    {
-      name: 'Faris Ramadhan',
-      avatar: HomeBackground,
-      job: 'Full Stack Developer',
-      skills: ['javascript', 'java', 'css']
-    },
-    {
-      name: 'Faris Ramadhan',
-      avatar: HomeBackground,
-      job: 'Full Stack Developer',
-      skills: ['javascript', 'java', 'css']
-    },
-  ])
 
   return(
     <>

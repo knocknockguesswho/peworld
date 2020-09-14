@@ -30,6 +30,8 @@ const TextFieldMedium = ({
   submit,
   check,
   withArrow,
+  outline,
+  height
 }) => {
   const [input, setInput] = useState({
     value: value,
@@ -57,7 +59,7 @@ const TextFieldMedium = ({
   return (
     <>
       <Text style={styles.formTitle}>{placeholder}</Text>
-      <View style={styles.container(input.isError)}>
+      <View style={styles.container(input.isError, outline, height)}>
         <Text
           style={styles.formLabel(
             input.isError,
@@ -69,7 +71,7 @@ const TextFieldMedium = ({
             ? placeholder
             : ''}
         </Text>
-        <View style={styles.formContainer(input.isError)}>
+        <View style={styles.formContainer(input.isError, height)}>
           <TextInput
             placeholder={`Masukkan ${placeHolderToLowerCase}`}
             placeholderTextColor={'#22222250'}
@@ -111,9 +113,9 @@ export default TextFieldMedium;
 const {height, width} = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
-  formContainer: (isError) => ({
+  formContainer: (isError, heightProp) => ({
     width: width * 0.85,
-    height: width * 0.12,
+    height: heightProp || width * 0.12,
     backgroundColor: 'white',
     paddingLeft: width * 0.03,
     marginRight: width * 0.009,
@@ -124,15 +126,16 @@ const styles = StyleSheet.create({
     width: width * 0.8,
     color: isError ? '#F01F0E' : '#222222',
   }),
-  container: (isError) => ({
+  container: (isError, outline, heightProp) => ({
+    height: heightProp,
     width: width * 0.9,
     marginTop: width * 0.01,
     marginBottom: width * .05,
     borderRadius: width * 0.01,
     backgroundColor: 'white',
-    borderColor: isError ? '#F01F0E' : 'white',
-    borderWidth: isError ? 1 : 0,
-    elevation: 2,
+    borderColor: outline ? '#22222250' : 'white',
+    borderWidth: outline ? width*.001 : 0,
+    elevation: outline? 0 : 2,
     overflow: 'hidden',
   }),
   formLabel: (isError, isTyping, doneSubmitting, value) => ({

@@ -15,6 +15,7 @@ import TabItem from './TabItem';
 import ProfilePicture from './ProfilePicture';
 import Card from './Card';
 import SortButton from './SortButton';
+import RadioButton from './RadioButton';
 
 export {
   Button,
@@ -33,5 +34,6 @@ export {
   TabItem,
   ProfilePicture,
   Card,
-  SortButton
+  SortButton,
+  RadioButton
 };

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {RegisterAction} from '../redux/actions/auth'
 import {
   Text,
   View,
@@ -62,24 +64,21 @@ class Signup extends Component{
   };
 
   handleSignup = async () => {
-    // const {dispatch, navigation} = this.props;
-    // const {formGroup} = this.state;
-    // const data = {
-    //   name: formGroup[0].value,
-    //   email: formGroup[1].value,
-    //   password: formGroup[2].value,
-    // };
-    // await dispatch(Register(data))
-    //   .then((res) => {
-    //     Alert.alert(
-    //       'Register Success, Check your email for get activation code',
-    //     );
-    //     navigation.replace('Verification');
-    //   })
-    //   .catch((err) => {
-    //     Alert.alert(err.response.data.data);
-    //     console.log(err.response.data);
-    //   });
+    const {formGroup} = this.state
+    const data = {
+      name: formGroup[0].value,
+      email: formGroup[1].value,
+      phone: formGroup[2].value,
+      password: formGroup[3].value,
+    };
+    await this.props.RegisterAction(data)
+      .then((res) => {
+        this.props.navigation.push('Login')
+      })
+      .catch((err) => {
+        Alert.alert(err.response.data.data);
+        console.log(err.response.data);
+      });
     console.log('Signup')
   };
 
@@ -100,7 +99,7 @@ class Signup extends Component{
                 subTitle="This screen is for employee"
                 link="Already have an account?"
                 submit={this.getData}
-                onPress={() => this.handleLogin()}
+                onPress={() => this.handleSignup()}
                 forgotPress={()=>console.log(`I'm Forget`)}
                 buttonTitle='Daftar'
               />
@@ -139,4 +138,13 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Signup;
+const mapStateToProps = state =>({
+  auth: state.auth
+});
+
+const mapDispatchToProps = {RegisterAction}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Signup);
