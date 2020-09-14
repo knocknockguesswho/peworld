@@ -1,15 +1,15 @@
-# Glamour-Shop
+# peworld
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
-![GitHub repo size](https://img.shields.io/github/repo-size/knocknockguesswho/Glamour-Shop)
-![GitHub contributors](https://img.shields.io/github/contributors/knocknockguesswho/Glamour-Shop)
-![GitHub stars](https://img.shields.io/github/stars/knocknockguesswho/Glamour-Shop?style=social)
-![GitHub forks](https://img.shields.io/github/forks/knocknockguesswho/Glamour-Shop?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/knocknockguesswho/peworld)
+![GitHub contributors](https://img.shields.io/github/contributors/knocknockguesswho/peworld)
+![GitHub stars](https://img.shields.io/github/stars/knocknockguesswho/peworld?style=social)
+![GitHub forks](https://img.shields.io/github/forks/knocknockguesswho/peworld?style=social)
 
 Project name is a <>, this project was developing <>.
 
 <> App has an API, please visit the link below
-https://github.com/prioarief/Glamour-Shop-API
+https://github.com/knocknockguesswho/job-finder-api
 
 ## Equipments
 * Android Studio
@@ -53,7 +53,7 @@ Start React Native running on your Device or Emulator
 ```
 
 ## Documentation
-https://documenter.getpostman.com/view/9924773/T1LS9jMK
+
 
 
 
